@@ -2,6 +2,14 @@ const display = document.getElementsByClassName("calculator__display")[0]
 const calculator = document.getElementsByClassName("calculator")[0]
 const keys = document.getElementsByClassName("calculator__keys")[0]
 
+function init_consts() {
+    localStorage.setItem("3.14159265359","π")
+    localStorage.setItem("3.14159265359","Pi")
+    localStorage.setItem("299792458","c")
+    localStorage.setItem("2.71828","e")
+    console.log("Consts Initialised")
+}
+
 function calculate(expression) {
     let result = '';
     for (let letter of expression) {
@@ -39,7 +47,6 @@ keys.addEventListener("click", e => {
         if (!action) {
             if(display.textContent === "0"){display.textContent = ""}
             display.textContent += keyText;
-            display.textContent += keyText
             //if the action data field of the button is undefined (it is a number key) append the number of key pressed to the display or if there is only a 0 on the display then remove that first
         } else if (
             action === 'add'
@@ -84,12 +91,18 @@ keys.addEventListener("click", e => {
         }
     })
 
-function store(value,name){
-    localStorage.setItem(name,value);
+void function store(value,name){
+    localStorage.setItem(value,name);
     console.log("Stored " + name + " as " + value);
 }
 
-function recall(name){
-    localStorage.getItem(name);
-    console.log("Recalled " + name);
+void function lsrecall(name){
+    let x =  localStorage.getItem(name);
+    if (x === "null") {
+        console.log("Recalled of " + name + "  failed");
+    } else {
+        display.textContent += localStorage.getItem(name);
+        console.log("Recalled " + name);
+    }
+
 }

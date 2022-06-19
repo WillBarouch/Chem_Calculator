@@ -6,7 +6,7 @@
     <script src="js/main.js" defer></script>
     <link href="style.css" rel="stylesheet">
 </head>
-<body>
+<body onload="init_consts()">
 <div class="container">
 
     <div class="calculator">
@@ -45,7 +45,7 @@
         <input type="submit" value="Store">
     </form>
 
-    <form onsubmit="recall(document.getElementById('namercl').value); return false">
+    <form onsubmit="lsrecall(document.getElementById('namercl').value); return false">
         <label for="namercl">Name:</label>
         <input id="namercl" type="text">
         <input type="submit" value="Recall">
