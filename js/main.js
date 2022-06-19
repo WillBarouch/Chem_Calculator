@@ -8,8 +8,22 @@ void function onclick(type) {
 }
 
 function calculate(expression) {
+    let result = '';
+    for (let letter of expression) {
+        if (letter === "×") {
+            result += " * "
+        } else if (letter === "÷") {
+            result += "/"
+        } else if (letter === "^") {
+            result += "**"
+        } else {
+            result += letter; 
+        }
+        
+    }
+    
     try {
-       return eval(expression);
+       return eval(result);
     } catch (err) {
         if (err instanceof SyntaxError) {
             return "Syntax Error"
@@ -26,36 +40,36 @@ keys.addEventListener("click", e => {
         const keyText = key.textContent
         if (!action) {
             if(display.textContent === "0"){display.textContent = ""}
-            display.textContent += keyText
+            display.textContent += keyText;
         } else if (
             action === 'add'
         ) {
-            display.textContent += "+"
+            display.textContent += "+";
         } else if 
         (
             action === 'subtract'
         ) {
-            display.textContent += "-"
+            display.textContent += "-";
         } else if (
             action === 'multiply'
         ) {
-            display.textContent += "*"
+            display.textContent += "×";
         } else if (
             action === 'divide'
         ) {
-            display.textContent += "/"
+            display.textContent += "÷";
         } else if (
             action === 'clear'
         ) {
-            display.textContent = "0"
+            display.textContent = "0";
         } else if (
             action === 'decimal'
         ) {
-            display.textContent += "."
+            display.textContent += ".";
         } else if (
             action === 'exponent'
         ) {
-            display.textContent += "**"
+            display.textContent += "^";
         } else if (
             action === 'store'
         ) {
@@ -63,6 +77,7 @@ keys.addEventListener("click", e => {
         } else if (
             action === 'calculate'
         ) {
+            console.log(calculate(display.textContent))
             display.textContent = calculate(display.textContent)
         }
             
@@ -72,4 +87,9 @@ keys.addEventListener("click", e => {
 function store(value,name){
     localStorage.setItem(name,value);
     console.log("Stored " + name + " as " + value);
+}
+
+function recall(name){
+    localStorage.getItem(name);
+    console.log("Recalled " + name);
 }

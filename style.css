@@ -107,7 +107,7 @@ body {
     width: 100%;
     margin-top: 85%;
     height: 20%;
-    background-color: white;
+    background-color: #3a3a3a;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
 }
@@ -122,4 +122,8 @@ body {
 
 .store button:active  {
     background-color: #7199b6;
+}
+
+label {
+    color: white;
 }
