@@ -16,9 +16,9 @@ function calculate(expression) {
         if (letter === "×") {
             result += " * "
         } else if (letter === "÷") {
-            result += "/"
+            result += " / "
         } else if (letter === "^") {
-            result += "**"
+            result += " ** "
         } else {
             result += letter; 
         }
@@ -91,18 +91,16 @@ keys.addEventListener("click", e => {
         }
     })
 
-void function store(value,name){
+function store(event,value,name){
     localStorage.setItem(value,name);
     console.log("Stored " + name + " as " + value);
 }
-
-void function lsrecall(name){
+function recall(event, name){
     let x =  localStorage.getItem(name);
-    if (x === "null") {
+    if (x === null || x === undefined || x === false){
         console.log("Recalled of " + name + "  failed");
     } else {
         display.textContent += localStorage.getItem(name);
         console.log("Recalled " + name);
     }
-
 }

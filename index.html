@@ -39,16 +39,16 @@
 </div>
 
 <div class="store">
-    <form onsubmit="store(document.getElementById('name').value,display.textContent); return false">
+    <form>
         <label for="name">Name:</label>
             <input id="name" type="text">
-        <input type="submit" value="Store">
+        <input type="button" onclick="store(document.getElementById('name').value,display.textContent)" value="Store">
     </form>
 
-    <form onsubmit="lsrecall(document.getElementById('namercl').value); return false">
+    <form>
         <label for="namercl">Name:</label>
         <input id="namercl" type="text">
-        <input type="submit" value="Recall">
+        <input type="button" onclick="recall(document.getElementById('namercl').value)" value="Recall">
     </form>
 </div>
 
